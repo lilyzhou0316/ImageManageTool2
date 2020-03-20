@@ -5,26 +5,28 @@ import java.awt.image.*;
 import java.io.*;
 import java.text.*;
 
-public class Image {
-    public File file;
-    // public BufferedImage image;
+public class ImageInfo {
+    private File file;
+    private BufferedImage image;
     private String path;
     private String name;
     private String format;
     public long size;
     public long date;
     private String resolution;
+    // private Image image;
 
     public String color;
     public String camera;
     public String location;
 
-    public Image() {
+    public ImageInfo() {
     }
 
-    public Image(File image) {
+    public ImageInfo(File image) {
         this.size = image.length();
-        this.path = image.getName();
+        this.name = image.getName();
+        this.path = image.getAbsolutePath();
         this.date = image.lastModified();
 
         this.file = image;
@@ -33,12 +35,11 @@ public class Image {
     }
 
     public String getName() {
-        this.name = path.substring(0, path.lastIndexOf("."));
         return name;
     }
 
     public String getType() {
-        this.format = path.substring(path.lastIndexOf("."), path.length());
+        this.format = name.substring(path.lastIndexOf("."), path.length());
         return format;
     }
 

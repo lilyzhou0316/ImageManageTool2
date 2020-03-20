@@ -1,7 +1,12 @@
 package imageManageToolSceneBuilder;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.Button;
+import javafx.scene.control.cell.PropertyValueFactory;
+//import javafx.collections.ObservableList;
+import javafx.collections.*;
 import javafx.event.ActionEvent;
 import javax.swing.*;
 import javafx.scene.layout.*;
@@ -12,20 +17,32 @@ import javafx.fxml.Initializable;
 public class Controller implements Initializable {
     @FXML
     private BorderPane pane;
-    double pw, ph;
+    // double pw, ph;
 
     @FXML
     private HBox hb;
-    double hbw;
+    // double hbw;
     @FXML
     private Button btn1, btn2, btn3;
 
     @FXML
-    private TreeTableView ttv;
-    double w, h;
+    private TableView<ImageInfo> tbview;
+    // double w, h;
 
     @FXML
-    private TreeTableColumn c1, c2, c3, c4, c5, c6, c7;
+    private TableColumn<ImageInfo, String> c1;// c1 should output ImageInfo not string, need to change
+    @FXML
+    private TableColumn<ImageInfo, String> c2;
+    @FXML
+    private TableColumn<ImageInfo, String> c3;
+    @FXML
+    private TableColumn<ImageInfo, String> c4;
+    @FXML
+    private TableColumn<ImageInfo, String> c5;
+    @FXML
+    private TableColumn<ImageInfo, String> c6;
+    @FXML
+    private TableColumn<ImageInfo, String> c7;
 
     @FXML
     public void convertFormat(ActionEvent event) {
@@ -43,27 +60,34 @@ public class Controller implements Initializable {
         // to do
 
     }
+    /*
+     * initialize the Controller class
+     */
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        ttv.prefWidthProperty().bind(pane.widthProperty());
-        /*
-         * pw = pane.getWidth(); ph = pane.getHeight(); w = ttv.getWidth(); h =
-         * ttv.getHeight(); // bind treetableview's width to borderpane's width
-         * ttv.prefWidthProperty().bind(pane.widthProperty()); // set treetableview and
-         * hbox's height ttv.setPrefHeight(ph * 0.9); hb.setPrefHeight(ph * 0.1); // set
-         * each cell's width c1.setPrefWidth(w * 0.25); c2.setPrefWidth(w * 0.05);
-         * c3.setPrefWidth(w * 0.05); c4.setPrefWidth(w * 0.1); c5.setPrefWidth(w *
-         * 0.2); c6.setPrefWidth(w * 0.1); c7.setPrefWidth(w * 0.25);
-         * 
-         * // bind buttons' height to hbox's height
-         * btn1.prefHeightProperty().bind(hb.heightProperty());
-         * btn2.prefHeightProperty().bind(hb.heightProperty());
-         * btn3.prefHeightProperty().bind(hb.heightProperty()); // set buttons' width
-         * hbw = hb.getWidth(); btn1.setPrefWidth(hbw * 0.25); btn2.setPrefWidth(hbw *
-         * 0.25); btn3.setPrefWidth(hbw * 0.25);
-         */
+        // ttv.prefWidthProperty().bind(pane.widthProperty());
+        // set up the columns in the table
+        c1.setCellValueFactory(new PropertyValueFactory<ImageInfo, String>("ImageInfo"));
+        c2.setCellValueFactory(new PropertyValueFactory<ImageInfo, String>("Name"));
+        c3.setCellValueFactory(new PropertyValueFactory<ImageInfo, String>("Type"));
+        c4.setCellValueFactory(new PropertyValueFactory<ImageInfo, String>("Size"));
+        c5.setCellValueFactory(new PropertyValueFactory<ImageInfo, String>("Resolution"));
+        c6.setCellValueFactory(new PropertyValueFactory<ImageInfo, String>("Date"));
+        c7.setCellValueFactory(new PropertyValueFactory<ImageInfo, String>("Path"));
 
+        // load dummy data
+        tbview.setItems(getImageInfo());
+
+    }
+
+    /*
+     * this method will return an ObservableList of ImageInfo objects
+     */
+    public ObservableList<ImageInfo> getImageInfo() {
+        ObservableList<ImageInfo> img = FXCollections.observableArrayList();
+        // img.add(new ImageInfo());
+        return img;
     }
 
 }

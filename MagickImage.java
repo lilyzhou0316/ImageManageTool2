@@ -16,7 +16,13 @@ import org.im4java.process.ArrayListOutputConsumer;
 
 public class MagickImage {
 
-    private static final String IMAGE_MAGICK_PATH = "/Users/zhouxiaoli/Desktop/1.png";
+    // private static final String IMAGE_MAGICK_PATH =
+    // "/Users/zhouxiaoli/Desktop/1.png";
+    public static String path;
+
+    public MagickImage(File f) {
+        path = f.getAbsolutePath();
+    }
 
     enum CommandType {
 
@@ -52,7 +58,7 @@ public class MagickImage {
                 break;
         }
         if (cmd != null) {
-            cmd.setSearchPath(IMAGE_MAGICK_PATH);
+            cmd.setSearchPath(path);
         }
         return cmd;
     }
