@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<?import javafx.geometry.Insets ?>
+<?import javafx.scene.control.Button ?>
+<?import javafx.scene.control.TreeTableColumn ?>
+<?import javafx.scene.control.TreeTableView ?>
+<?import javafx.scene.layout.BorderPane ?>
+<?import javafx.scene.layout.HBox ?>
+
+<BorderPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imageManageTool2.Controller">
+   <bottom>
+      <HBox fx:id="hb" prefHeight="41.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btn1" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#upload" prefHeight="40.0" prefWidth="110.0" text="Upload">
+               <HBox.margin>
+                  <Insets left="50.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btn2" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#convertFormat" prefHeight="40.0" prefWidth="110.0" text="Convert">
+               <HBox.margin>
+                  <Insets left="80.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btn3" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#download" prefHeight="40.0" prefWidth="110.0" text="Download">
+               <HBox.margin>
+                  <Insets left="80.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </bottom>
+   <center>
+      <TreeTableView fx:id="ttv" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <columns>
+            <TreeTableColumn fx:id="c1" prefWidth="125.0" text="Image" />
+            <TreeTableColumn fx:id="c2" prefWidth="75.0" text="Type" />
+            <TreeTableColumn fx:id="c3" prefWidth="50.0" text="Size" />
+            <TreeTableColumn fx:id="c4" prefWidth="100.0" text="Date" />
+            <TreeTableColumn fx:id="c5" prefWidth="100.0" text="Resolution" />
+            <TreeTableColumn fx:id="c6" prefWidth="50.0" text="Quality" />
+            <TreeTableColumn fx:id="c7" prefWidth="100.0" text="Path" />
+         </columns>
+      </TreeTableView>
+   </center>
+</BorderPane>
