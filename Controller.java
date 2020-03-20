@@ -1,4 +1,4 @@
-package imageManageTool2;
+package imageManageToolSceneBuilder;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;

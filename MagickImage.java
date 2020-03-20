@@ -1,4 +1,4 @@
-package imageManageTool2;
+package imageManageToolSceneBuilder;
 
 import java.awt.Image;
 import java.awt.image.BufferedImage;

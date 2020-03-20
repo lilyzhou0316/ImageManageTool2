@@ -1,4 +1,4 @@
-package imageManageTool2;
+package imageManageToolSceneBuilder;
 
 import javax.imageio.*;
 import java.awt.image.*;
